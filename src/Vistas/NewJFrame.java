@@ -200,7 +200,7 @@ public class NewJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new NewJFrame().setVisible(true));
     }
-
+//hola
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JDesktopPane jDesktopPane1;
