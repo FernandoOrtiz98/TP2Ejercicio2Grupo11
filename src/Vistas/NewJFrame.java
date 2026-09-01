@@ -11,7 +11,7 @@ package Vistas;
 public class NewJFrame extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame.class.getName());
-
+    
     /**
      * Creates new form NewJFrame
      */
@@ -30,9 +30,9 @@ public class NewJFrame extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jPasswordField3 = new javax.swing.JPasswordField();
+        jpf3 = new javax.swing.JPasswordField();
+        jpf1 = new javax.swing.JPasswordField();
+        jpf2 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -43,27 +43,30 @@ public class NewJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPasswordField1.setBackground(new java.awt.Color(102, 255, 102));
-        jPasswordField1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPasswordField1.setForeground(new java.awt.Color(0, 0, 0));
-        jPasswordField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField1.setText("$");
-        jPasswordField1.setToolTipText("$");
-        jPasswordField1.addActionListener(this::jPasswordField1ActionPerformed);
+        jpf3.setBackground(new java.awt.Color(102, 255, 102));
+        jpf3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jpf3.setForeground(new java.awt.Color(0, 0, 0));
+        jpf3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jpf3.setText("$");
+        jpf3.setToolTipText("$");
+        jpf3.setEchoChar('$');
+        jpf3.addActionListener(this::jpf3ActionPerformed);
 
-        jPasswordField2.setBackground(new java.awt.Color(204, 153, 255));
-        jPasswordField2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPasswordField2.setForeground(new java.awt.Color(0, 0, 0));
-        jPasswordField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField2.setText("$");
-        jPasswordField2.setToolTipText("$");
+        jpf1.setBackground(new java.awt.Color(204, 153, 255));
+        jpf1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jpf1.setForeground(new java.awt.Color(0, 0, 0));
+        jpf1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jpf1.setText(".");
+        jpf1.setToolTipText("");
+        jpf1.setEchoChar('$');
 
-        jPasswordField3.setBackground(new java.awt.Color(255, 255, 153));
-        jPasswordField3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jPasswordField3.setForeground(new java.awt.Color(0, 0, 0));
-        jPasswordField3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jPasswordField3.setText("$");
-        jPasswordField3.setToolTipText("$");
+        jpf2.setBackground(new java.awt.Color(255, 255, 153));
+        jpf2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jpf2.setForeground(new java.awt.Color(0, 0, 0));
+        jpf2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jpf2.setText("$");
+        jpf2.setToolTipText("$");
+        jpf2.setEchoChar('$');
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,11 +74,11 @@ public class NewJFrame extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jPasswordField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jpf3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,9 +86,9 @@ public class NewJFrame extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPasswordField3)
-                    .addComponent(jPasswordField2)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpf2)
+                    .addComponent(jpf1)
+                    .addComponent(jpf3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -200,16 +203,17 @@ public class NewJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
+    private void jpf3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpf3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jPasswordField1ActionPerformed
-
+    }//GEN-LAST:event_jpf3ActionPerformed
+    
     /**
      * @param args the command line arguments
      */
@@ -244,9 +248,9 @@ public class NewJFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JPasswordField jPasswordField3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jpf1;
+    private javax.swing.JPasswordField jpf2;
+    private javax.swing.JPasswordField jpf3;
     // End of variables declaration//GEN-END:variables
 }
