@@ -1,22 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package Vistas;
 
-/**
- *
- * @author Fer
- */
+import java.awt.Image;
+import java.net.URL;
+import javax.swing.ImageIcon;
+import java.util.Random;
+import javax.swing.JOptionPane;
+
 public class NewJFrame extends javax.swing.JFrame {
-    
+
+    private int numeroSecreto;
+    private int intentos = 0;
+    private int ayudas = 0;
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(NewJFrame.class.getName());
-    
+
     /**
      * Creates new form NewJFrame
      */
     public NewJFrame() {
         initComponents();
+        Random random = new Random();
+
+        numeroSecreto = random.nextInt(900) + 100;
+
+        txtDigito1.setText(String.valueOf(numeroSecreto).substring(0, 1));
+        txtDigito2.setText(String.valueOf(numeroSecreto).substring(1, 2));
+        txtDigito3.setText(String.valueOf(numeroSecreto).substring(2, 3));
+
+        txtDigito1.setEchoChar('$');
+        txtDigito2.setEchoChar('$');
+        txtDigito3.setEchoChar('$');
+
+        txtDigito1.setEditable(false);
+        txtDigito2.setEditable(false);
+        txtDigito3.setEditable(false);
     }
 
     /**
@@ -28,67 +44,69 @@ public class NewJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jDesktopPane1 = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
-        jpf3 = new javax.swing.JPasswordField();
-        jpf1 = new javax.swing.JPasswordField();
-        jpf2 = new javax.swing.JPasswordField();
+        desktopPane = new javax.swing.JDesktopPane();
+        pnlCodigo = new javax.swing.JPanel();
+        txtDigito3 = new javax.swing.JPasswordField();
+        txtDigito1 = new javax.swing.JPasswordField();
+        txtDigito2 = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnRevelar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtIntento = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
+        lblPista = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jpf3.setBackground(new java.awt.Color(102, 255, 102));
-        jpf3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jpf3.setForeground(new java.awt.Color(0, 0, 0));
-        jpf3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jpf3.setText("$");
-        jpf3.setToolTipText("$");
-        jpf3.setEchoChar('$');
-        jpf3.addActionListener(this::jpf3ActionPerformed);
+        txtDigito3.setBackground(new java.awt.Color(102, 255, 102));
+        txtDigito3.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtDigito3.setForeground(new java.awt.Color(0, 0, 0));
+        txtDigito3.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDigito3.setText("$");
+        txtDigito3.setToolTipText("$");
+        txtDigito3.setEchoChar('$');
+        txtDigito3.addActionListener(this::txtDigito3ActionPerformed);
 
-        jpf1.setBackground(new java.awt.Color(204, 153, 255));
-        jpf1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jpf1.setForeground(new java.awt.Color(0, 0, 0));
-        jpf1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jpf1.setText(".");
-        jpf1.setToolTipText("");
-        jpf1.setEchoChar('$');
+        txtDigito1.setBackground(new java.awt.Color(204, 153, 255));
+        txtDigito1.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtDigito1.setForeground(new java.awt.Color(0, 0, 0));
+        txtDigito1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDigito1.setText(".");
+        txtDigito1.setToolTipText("");
+        txtDigito1.setEchoChar('$');
 
-        jpf2.setBackground(new java.awt.Color(255, 255, 153));
-        jpf2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jpf2.setForeground(new java.awt.Color(0, 0, 0));
-        jpf2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jpf2.setText("$");
-        jpf2.setToolTipText("$");
-        jpf2.setEchoChar('$');
+        txtDigito2.setBackground(new java.awt.Color(255, 255, 153));
+        txtDigito2.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        txtDigito2.setForeground(new java.awt.Color(0, 0, 0));
+        txtDigito2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDigito2.setText("$");
+        txtDigito2.setToolTipText("$");
+        txtDigito2.setEchoChar('$');
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnlCodigoLayout = new javax.swing.GroupLayout(pnlCodigo);
+        pnlCodigo.setLayout(pnlCodigoLayout);
+        pnlCodigoLayout.setHorizontalGroup(
+            pnlCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCodigoLayout.createSequentialGroup()
                 .addGap(39, 39, 39)
-                .addComponent(jpf1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDigito1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addComponent(jpf2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDigito2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jpf3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtDigito3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(43, 43, 43))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnlCodigoLayout.setVerticalGroup(
+            pnlCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlCodigoLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jpf2)
-                    .addComponent(jpf1)
-                    .addComponent(jpf3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pnlCodigoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtDigito2)
+                    .addComponent(txtDigito1)
+                    .addComponent(txtDigito3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
@@ -101,13 +119,20 @@ public class NewJFrame extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 51));
         jLabel2.setText("Codigo Secreto");
 
-        jButton1.setText("Revelar");
-        jButton1.addActionListener(this::jButton1ActionPerformed);
+        btnRevelar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnRevelar.setText("Revelar");
+        btnRevelar.addActionListener(this::btnRevelarActionPerformed);
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
-        jTextField1.setBackground(new java.awt.Color(255, 204, 204));
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
+        txtIntento.setBackground(new java.awt.Color(255, 204, 204));
+        txtIntento.setForeground(new java.awt.Color(0, 0, 0));
+        txtIntento.addActionListener(this::txtIntentoActionPerformed);
+        txtIntento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtIntentoKeyTyped(evt);
+            }
+        });
 
         jLabel3.setBackground(new java.awt.Color(255, 204, 204));
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 17)); // NOI18N
@@ -122,7 +147,7 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                    .addComponent(jTextField1))
+                    .addComponent(txtIntento))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -131,89 +156,174 @@ public class NewJFrame extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtIntento, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
-        jDesktopPane1.setLayer(jPanel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        lblPista.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblPista.setForeground(new java.awt.Color(255, 255, 51));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(132, 132, 132))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        desktopPane.setLayer(pnlCodigo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(btnRevelar, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(lblImagen, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        desktopPane.setLayer(lblPista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout desktopPaneLayout = new javax.swing.GroupLayout(desktopPane);
+        desktopPane.setLayout(desktopPaneLayout);
+        desktopPaneLayout.setHorizontalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(desktopPaneLayout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(desktopPaneLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(desktopPaneLayout.createSequentialGroup()
+                                .addGap(40, 40, 40)
+                                .addComponent(lblPista, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(59, Short.MAX_VALUE))))
+                        .addComponent(pnlCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(132, 132, 132))
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(desktopPaneLayout.createSequentialGroup()
+                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(61, 61, 61)
+                                .addComponent(btnRevelar, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 602, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
+        desktopPaneLayout.setVerticalGroup(
+            desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(desktopPaneLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pnlCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(32, 32, 32))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50))))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addComponent(lblPista, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(desktopPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desktopPaneLayout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, desktopPaneLayout.createSequentialGroup()
+                        .addComponent(btnRevelar, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50))
+                    .addGroup(desktopPaneLayout.createSequentialGroup()
+                        .addComponent(lblImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(desktopPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(desktopPane)
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnRevelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRevelarActionPerformed
+        if (ayudas >= 2) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "No hay más revelaciones"
+            );
+            return;
+        }
+        if (ayudas == 0) {
+            txtDigito1.setEchoChar((char) 0);
+        } else if (ayudas == 1) {
+            txtDigito2.setEchoChar((char) 0);
+        }
+        ayudas++;
+    }//GEN-LAST:event_btnRevelarActionPerformed
 
-    private void jpf3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jpf3ActionPerformed
+    private void txtDigito3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDigito3ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jpf3ActionPerformed
-    
+    }//GEN-LAST:event_txtDigito3ActionPerformed
+
+    private void txtIntentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIntentoKeyTyped
+        char c = evt.getKeyChar();
+
+        if (!Character.isDigit(c)) {
+            evt.consume();
+            return;
+        }
+
+        String input = txtIntento.getText() + c;
+
+        if (input.length() > 3) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtIntentoKeyTyped
+
+    private void txtIntentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtIntentoActionPerformed
+        String input = txtIntento.getText();
+        if (input.length() != 3 || !input.matches("\\d+")) {
+
+            JOptionPane.showMessageDialog(
+                    this,
+                    "Ingresá exactamente 3 números"
+            );
+            return;
+        }
+        intentos++;
+        String secreto = String.valueOf(numeroSecreto);
+        if (input.charAt(0) == secreto.charAt(0)) {
+            txtDigito1.setEchoChar((char) 0);
+        }
+        if (input.charAt(1) == secreto.charAt(1)) {
+            txtDigito2.setEchoChar((char) 0);
+        }
+        if (input.charAt(2) == secreto.charAt(2)) {
+            txtDigito3.setEchoChar((char) 0);
+        }
+        int intento = Integer.parseInt(input);
+        if (intento < numeroSecreto) {
+            lblPista.setText("Más alto");
+        } else if (intento > numeroSecreto) {
+            lblPista.setText("Más bajo");
+        } else {
+            lblPista.setText("¡Correcto!");
+            try {
+                URL url = new URL(
+                        "https://images.vexels.com/media/users/3/202189/isolated/lists/4f3a5cb84297726d74d69dce22676f83-trofeo-numero-1-plano.png"
+                );
+                ImageIcon icon = new ImageIcon(url);
+                Image imagen = icon.getImage().getScaledInstance(
+                        120,
+                        120,
+                        Image.SCALE_SMOOTH
+                );
+                lblImagen.setIcon(new ImageIcon(imagen));
+            } catch (Exception e) {
+                System.out.println("Error al cargar la imagen del trofeo");
+            }
+            JOptionPane.showMessageDialog(
+                    this,
+                    "¡Ganaste!\nCantidad de intentos: " + intentos
+            );
+        }
+        txtIntento.setText("");
+    }//GEN-LAST:event_txtIntentoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -240,17 +350,18 @@ public class NewJFrame extends javax.swing.JFrame {
     }
 //hola
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JButton btnRevelar;
+    private javax.swing.JDesktopPane desktopPane;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JPasswordField jpf1;
-    private javax.swing.JPasswordField jpf2;
-    private javax.swing.JPasswordField jpf3;
+    private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lblPista;
+    private javax.swing.JPanel pnlCodigo;
+    private javax.swing.JPasswordField txtDigito1;
+    private javax.swing.JPasswordField txtDigito2;
+    private javax.swing.JPasswordField txtDigito3;
+    private javax.swing.JTextField txtIntento;
     // End of variables declaration//GEN-END:variables
 }
